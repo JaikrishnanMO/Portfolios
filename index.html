@@ -4,18 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jaikrishnan Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
-    /* General Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
-
     body {
-      font-family: Arial, sans-serif;
       background-color: #0d0d0d;
-      color: #fff;
+      color: #f5f5f5;
       line-height: 1.6;
     }
 
@@ -24,46 +28,40 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #111;
+      background: #111;
       padding: 15px 30px;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
     }
-
     nav .logo {
       font-size: 22px;
-      font-weight: bold;
-      color: #ff0000;
+      font-weight: 700;
+      color: #ff3b3b;
+      letter-spacing: 1px;
     }
-
     nav ul {
       list-style: none;
       display: flex;
     }
-
     nav ul li {
       margin-left: 25px;
     }
-
     nav ul li a {
       color: white;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 600;
       transition: 0.3s;
     }
-
     nav ul li a:hover {
-      color: #ff0000;
+      color: #ff3b3b;
     }
-
-    /* Hamburger */
     .hamburger {
       display: none;
       flex-direction: column;
       cursor: pointer;
     }
-
     .hamburger div {
       width: 25px;
       height: 3px;
@@ -71,8 +69,6 @@
       margin: 5px;
       transition: 0.3s;
     }
-
-    /* Mobile Menu */
     @media (max-width: 768px) {
       nav ul {
         display: none;
@@ -84,29 +80,38 @@
         left: 0;
         padding: 20px 0;
       }
-
       nav ul.active {
         display: flex;
       }
-
       .hamburger {
         display: flex;
       }
     }
 
-    /* Sections */
+    /* Section */
     section {
       padding: 80px 20px;
       text-align: center;
     }
-
-    h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #ff0000;
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 25px;
+      color: #ff3b3b;
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+    }
+    section h2::after {
+      content: '';
+      width: 50px;
+      height: 3px;
+      background: #ff3b3b;
+      display: block;
+      margin: 8px auto 0;
+      border-radius: 2px;
     }
 
-    /* Home Section */
+    /* Home */
     #home {
       display: flex;
       justify-content: center;
@@ -114,23 +119,51 @@
       flex-wrap: wrap;
       gap: 40px;
     }
-
     #home img {
       width: 220px;
       height: 220px;
       border-radius: 50%;
-      border: 5px solid #ff0000;
+      border: 5px solid #ff3b3b;
       object-fit: cover;
+      box-shadow: 0 5px 20px rgba(255,59,59,0.5);
     }
-
     #home .intro {
-      max-width: 500px;
+      max-width: 600px;
       text-align: left;
     }
-
     #home .intro h1 {
-      font-size: 36px;
+      font-size: 40px;
       margin-bottom: 15px;
+      font-weight: 700;
+    }
+    #home .intro p {
+      font-size: 18px;
+      color: #ddd;
+    }
+
+    /* Cards */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #333;
+      text-align: left;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border: 1px solid #ff3b3b;
+      box-shadow: 0 5px 20px rgba(255,59,59,0.3);
+    }
+    .card h3 {
+      color: #ff3b3b;
+      margin-bottom: 10px;
     }
 
     /* Skills */
@@ -138,53 +171,60 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 15px;
     }
-
     .skills-list div {
-      background: #111;
-      padding: 15px 25px;
-      border-radius: 8px;
-      border: 1px solid #ff0000;
-      font-weight: bold;
+      background: #1a1a1a;
+      padding: 12px 20px;
+      border-radius: 20px;
+      border: 1px solid #ff3b3b;
+      font-weight: 600;
+      transition: 0.3s;
     }
-
-    /* Projects */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .project-card {
-      background: #111;
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid #ff0000;
+    .skills-list div:hover {
+      background: #ff3b3b;
+      color: #fff;
     }
 
     /* Contact */
     .contact-info {
-      background: #111;
-      padding: 20px;
-      border-radius: 8px;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 12px;
       max-width: 600px;
       margin: auto;
-      border: 1px solid #ff0000;
+      border: 1px solid #333;
       text-align: left;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
     }
-
     .contact-info p {
-      margin: 10px 0;
+      margin: 12px 0;
+      font-size: 16px;
     }
-
     .contact-info a {
-      color: #ff0000;
+      color: #ff3b3b;
       text-decoration: none;
+      font-weight: 600;
     }
-
     .contact-info a:hover {
       text-decoration: underline;
+    }
+
+    /* Button */
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 25px;
+      background: #ff3b3b;
+      color: #fff;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #e60000;
+      box-shadow: 0 5px 15px rgba(255,59,59,0.4);
     }
   </style>
 </head>
@@ -197,12 +237,12 @@
       <li><a href="#home">Home</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="hamburger" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
+      <div></div><div></div><div></div>
     </div>
   </nav>
 
@@ -210,7 +250,13 @@
   <section id="home">
     <div class="intro">
       <h1>Hi, I'm Jaikrishnan M O</h1>
-      <p>I am a passionate <b>Full Stack Developer</b> specializing in modern web applications, backend systems, and creative solutions.</p>
+      <p>
+        I am a passionate <b>Full Stack Developer</b> and <b>Co-founder of LogicCraft Software Solutions</b>.  
+        With strong expertise in building scalable applications, I have completed <b>20+ real-world projects</b> 
+        for students and startups.  
+        Currently pursuing <b>MSc in AI & ML with a Minor in Data Science</b> at Yenepoya University, Bengaluru.
+      </p>
+      <a href="Jaikrishnan_CV.pdf" class="btn" download><i class="fa fa-download"></i> Download CV</a>
     </div>
     <img src="profile.jpeg" alt="My Photo">
   </section>
@@ -219,35 +265,75 @@
   <section id="skills">
     <h2>Skills</h2>
     <div class="skills-list">
-      <div>HTML</div>
-      <div>CSS</div>
-      <div>Bootstrap</div>
-      <div>JavaScript</div>
-      <div>React js</div>
+      <div>HTML5 & CSS3</div>
+      <div>JavaScript (ES6+)</div>
+      <div>React.js</div>
+      <div>Node.js</div>
       <div>Python</div>
       <div>Django</div>
-      <div>Node js</div>
-      <div>SQL</div>
-      <div>Mongodb</div>
+      <div>SQL & MongoDB</div>
+      <div>REST APIs</div>
+      <div>Data Structures & Algorithms</div>
+      <div>AI & Machine Learning Basics</div>
     </div>
   </section>
 
   <!-- Projects -->
   <section id="projects">
     <h2>Projects</h2>
-    <div class="projects">
-      <div class="project-card">
+    <div class="card-container">
+      <div class="card">
         <h3>MediLine+</h3>
-        <p>A smart hospital management system with live queue tracking, real-time notifications, and appointment booking.</p>
+        <p>A hospital management platform with live queue tracking, appointment booking, and real-time notifications.</p>
+        <p><b>Tech:</b> Django, React, PostgreSQL</p>
       </div>
-      <div class="project-card">
+      <div class="card">
+        <h3>Student Management System</h3>
+        <p>Manages students, teachers, and exams with authentication and dashboards.</p>
+        <p><b>Tech:</b> Node.js, React.js, MongoDB</p>
+      </div>
+      <div class="card">
         <h3>Portfolio Website</h3>
-        <p>A personal portfolio showcasing skills, projects, and contact details with a responsive design.</p>
+        <p>A responsive personal portfolio showcasing skills, projects, and education.</p>
+        <p><b>Tech:</b> HTML, CSS, JavaScript</p>
       </div>
-       <div class="project-card">
-        <h3>Blog App</h3>
-        <p>A Django-powered blog application with features like following/unfollowing users, 
-           likes, comments, and a personalized feed.</p>
+      <div class="card">
+        <h3>Blog Application</h3>
+        <p>A Django-powered blog platform with likes, comments, and personalized feeds.</p>
+        <p><b>Tech:</b> Django, SQLite</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>MSc AI & ML (Minor in Data Science)</h3>
+        <p>Yenepoya University, Bengaluru</p>
+        <p><i class="fa fa-calendar"></i> 2024 – Ongoing</p>
+      </div>
+      <div class="card">
+        <h3>BSc Computer Science</h3>
+        <p>SN College Cherthala (Kerala University)</p>
+        <p><i class="fa fa-calendar"></i> 2020 – 2023</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Co-founder – LogicCraft Software Solutions</h3>
+        <p><i class="fa fa-calendar"></i> 2023 – Present</p>
+        <ul>
+          <li>Developed and delivered <b>20+ academic and real-world projects</b>.</li>
+          <li>Worked with Django, React, Node.js, and SQL/MongoDB.</li>
+          <li>Guided students in project development and coding practices.</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -256,7 +342,7 @@
   <section id="contact">
     <h2>Contact</h2>
     <div class="contact-info">
-      <p><b>Email:</b> jaikrishnanmo2002@gmail.com</p>
+      <p><b>Email:</b> <a href="mailto:jaikrishnanmo2002@gmail.com">jaikrishnanmo2002@gmail.com</a></p>
       <p><b>Phone:</b> +91 8590447142</p>
       <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/jaikrishnan-m-o-967872214" target="_blank">linkedin.com/in/jaikrishnan-m-o</a></p>
       <p><b>GitHub:</b> <a href="https://github.com/JaikrishnanMO" target="_blank">github.com/jaikrishnan</a></p>
@@ -269,6 +355,5 @@
       document.getElementById("menu").classList.toggle("active");
     }
   </script>
-
 </body>
 </html>
