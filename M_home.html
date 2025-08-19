@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jaikrishnan Portfolio</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #111;
+      padding: 15px 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ff0000;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin-left: 25px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ff0000;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 5px;
+      transition: 0.3s;
+    }
+
+    /* Mobile Menu */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #111;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 20px 0;
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #ff0000;
+    }
+
+    /* Home Section */
+    #home {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    #home img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 5px solid #ff0000;
+      object-fit: cover;
+    }
+
+    #home .intro {
+      max-width: 500px;
+      text-align: left;
+    }
+
+    #home .intro h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    /* Skills */
+    .skills-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .skills-list div {
+      background: #111;
+      padding: 15px 25px;
+      border-radius: 8px;
+      border: 1px solid #ff0000;
+      font-weight: bold;
+    }
+
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #111;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #ff0000;
+    }
+
+    /* Contact */
+    .contact-info {
+      background: #111;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: auto;
+      border: 1px solid #ff0000;
+      text-align: left;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+    }
+
+    .contact-info a {
+      color: #ff0000;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Jaikrishnan M O</div>
+    <ul id="menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
+
+  <!-- Home -->
+  <section id="home">
+    <div class="intro">
+      <h1>Hi, I'm Jaikrishnan M O</h1>
+      <p>I am a passionate <b>Full Stack Developer</b> specializing in modern web applications, backend systems, and creative solutions.</p>
+    </div>
+    <img src="profile.jpeg" alt="My Photo">
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div>HTML</div>
+      <div>CSS</div>
+      <div>Bootstrap</div>
+      <div>JavaScript</div>
+      <div>React js</div>
+      <div>Python</div>
+      <div>Django</div>
+      <div>Node js</div>
+      <div>SQL</div>
+      <div>Mongodb</div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>MediLine+</h3>
+        <p>A smart hospital management system with live queue tracking, real-time notifications, and appointment booking.</p>
+      </div>
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>A personal portfolio showcasing skills, projects, and contact details with a responsive design.</p>
+      </div>
+       <div class="project-card">
+        <h3>Blog App</h3>
+        <p>A Django-powered blog application with features like following/unfollowing users, 
+           likes, comments, and a personalized feed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <p><b>Email:</b> jaikrishnanmo2002@gmail.com</p>
+      <p><b>Phone:</b> +91 8590447142</p>
+      <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/jaikrishnan-m-o-967872214" target="_blank">linkedin.com/in/jaikrishnan-m-o</a></p>
+      <p><b>GitHub:</b> <a href="https://github.com/JaikrishnanMO" target="_blank">github.com/jaikrishnan</a></p>
+      <p><b>Instagram:</b> <a href="https://www.instagram.com/jaikrishnan__" target="_blank">@jaikrishnan__</a></p>
+    </div>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("active");
+    }
+  </script>
+
+</body>
+</html>
